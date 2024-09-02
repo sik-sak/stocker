@@ -3,9 +3,6 @@ import yfinance as yf
 import datetime
 import snowflake.connector
 import os
-from dotenv import load_dotenv
-
-load_dotenv("snowflakecreds.env")
 
 # Define the stock ticker and the market open/close times
 ticker = "^NSEI"
