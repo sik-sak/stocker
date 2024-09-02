@@ -3,11 +3,21 @@ import yfinance as yf
 import datetime
 import snowflake.connector
 import os
+import logging
+
+logging.basicConfig(
+    filename=os.path.join("Logs", "realtimeFetchLogs.log"),
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+# Defining IST timezone
+IST = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
 
 # Define the stock ticker and the market open/close times
 ticker = "^NSEI"
-market_open = datetime.time(9, 15)
-market_close = datetime.time(15, 30)
+market_open = datetime.datetime.combine(datetime.date.today(), datetime.time(9, 15), IST)
+market_close = datetime.datetime.combine(datetime.date.today(), datetime.time(15, 30), IST)
 
 snowflake_conn_params = {
     'user': os.getenv('SNOWFLAKE_USER'),
@@ -15,16 +25,35 @@ snowflake_conn_params = {
     'account': os.getenv('SNOWFLAKE_ACCOUNT'),
     'warehouse': os.getenv('SNOWFLAKE_WAREHOUSE'),
     'database': os.getenv('SNOWFLAKE_DATABASE'),
-    'schema': os.getenv('SNOWFLAKE_SCHEMA')
+    'schema': os.getenv('SNOWFLAKE_SCHEMA_REALTIME')
 }
 
-snowflake_table = os.getenv('SNOWFLAKE_TABLE')
+snowflake_table = os.getenv('SNOWFLAKE_TABLE_REALTIME')
 
-# Define the Ticker object using yfinance
 nifty50 = yf.Ticker(ticker)
 
-# Function to fetch and update OHLC data in Snowflake
 def fetch_and_update_data():
+    """
+    Fetches OHLC (Open, High, Low, Close) data for NIFTY50 and updates it in the Snowflake database.
+
+    This function connects to the Snowflake database and fetches either all the data for the current day or just the last 5 minutes of data based on the current time in IST. The fetched data is then updated in the Snowflake database.
+
+    Workflow:
+    1. Establishes a connection to Snowflake using the provided connection parameters.
+    2. Fetches the current time in IST.
+    3. Determines whether to fetch the entire day's data or just the last 5 minutes based on the current time relative to the market close time.
+    4. If data is fetched, it is processed to retain only the OHLC values and update the corresponding entries in the Snowflake table.
+    5. The connection to Snowflake is closed after updating the database.
+
+    Parameters:
+    None
+
+    Returns:
+    None
+
+    Raises:
+    Exception: Any issues related to Snowflake connection, data fetching, or SQL execution will be caught and logged.
+    """
     # Establish connection to Snowflake
     conn = snowflake.connector.connect(**snowflake_conn_params)
 
@@ -32,14 +61,14 @@ def fetch_and_update_data():
     now_ist = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30)))
 
     # Define the start and end times
-    if now_ist.time() >= market_close:
+    if now_ist.time() >= market_close.time():
         data = nifty50.history(period="1d", interval="1m")
-        print("Fetching all data")
+        logging.info(f"Timestamp - {now_ist.time()} - Fetching all data")
     else:
         end_time = now_ist
         start_time = end_time - datetime.timedelta(minutes=5)
         data = nifty50.history(interval="1m", start=start_time, end=end_time)
-        print("Fetching past 5 minutes data")
+        logging.info(f"Timestamp - {now_ist.time()} - Fetching past 5 minutes data")
     
 
     if not data.empty:
@@ -48,16 +77,19 @@ def fetch_and_update_data():
         data.index = data.index.time  # Store only the time part of the index
 
         # Insert/update data in Snowflake
-        with conn.cursor() as cursor:
-            for time_index in data.index:
-                row = data.loc[time_index]
-                cursor.execute(f"""
-                    UPDATE {snowflake_table}
-                    SET Open = {round(row['Open'], 2)}, High = {round(row['High'], 2)}, Low = {round(row['Low'], 2)}, Close = {round(row['Close'], 2)}
-                    WHERE Timestamp = '{time_index}'
-                """)
+        try:
+            with conn.cursor() as cursor:
+                for time_index in data.index:
+                    row = data.loc[time_index]
+                    cursor.execute(f"""
+                        UPDATE {snowflake_table}
+                        SET Open = {round(row['Open'], 2)}, High = {round(row['High'], 2)}, Low = {round(row['Low'], 2)}, Close = {round(row['Close'], 2)}, updated_at = '{now_ist.strftime('%Y-%m-%d %H:%M:%S')}'
+                        WHERE Timestamp = '{time_index}'
+                    """)
+        except Exception as e:
+            logging.error(f"Failed to update data for {time_index}: {e}")
 
-    print("Database updated")
+    logging.info(f"Timestamp - {now_ist.time()} - Database updated")
     # Close the connection
     conn.close()
 
