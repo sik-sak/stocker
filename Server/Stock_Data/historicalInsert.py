@@ -169,7 +169,7 @@ def upload(symbol, companyName, currentPrice, marketCap, pe_ratio, dividend_yiel
         logging.error(f"Failed to insert data for {stock}: {e}")
 
 # Read stock tickers from the file and process them
-with open('stock_list.txt', 'r') as file:
+with open('../Data_Files/stock_list.txt', 'r') as file:
     for line in file:
         stock = line.strip()  # Read each line and strip whitespace
         if not stock:  # Skip empty lines
