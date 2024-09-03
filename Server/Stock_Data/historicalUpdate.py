@@ -46,7 +46,8 @@ query_nhd = f"""
         current_price = %s,
         market_capital = %s,
         pe_ratio = %s,
-        dividend_yield = %s
+        dividend_yield = %s,
+        updated_at = '{updated_at}'
     WHERE symbol = %s
 """
 
@@ -203,6 +204,7 @@ def upload(symbol, companyName, currentPrice, marketCap, pe_ratio, dividend_yiel
             ))
         except Exception as e:
             logging.error(f"Failed to update data for {stock}: {e}")
+    
 
 # Read stock tickers from stock file and process them
 with open(os.path.join('Server/Data_Files', 'stock_list.txt'), 'r') as file:
