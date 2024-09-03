@@ -26,4 +26,4 @@ jobs:
 
       - name: Run the Python script
         run: |
-          python Server/Stock_Data/realtimeFetch.py  # Replace 'your_script.py' with the actual script name
+          python Server/Stock_Data/realtimeFetch.py 
