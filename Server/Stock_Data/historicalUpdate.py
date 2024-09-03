@@ -8,6 +8,7 @@ import numpy as np
 
 logging.basicConfig(
     filename=os.path.join("Server/Logs", "historicalUpdateLogs.log"),
+    filemode='w',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
