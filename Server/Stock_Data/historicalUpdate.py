@@ -4,10 +4,6 @@ import snowflake.connector
 import os
 import datetime
 import logging
-from dotenv import load_dotenv
-
-load_dotenv("snowflakecreds.env")
-
 
 logging.basicConfig(
     filename=os.path.join("Server/Logs", "historicalUpdateLogs.log"),
