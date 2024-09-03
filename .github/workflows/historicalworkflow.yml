@@ -4,6 +4,7 @@ on:
   schedule:
     # Cron syntax: "min hour day month day_of_week"
     - cron: '*/5 * * * *'  # At 18:30 UTC everyday (12:00 AM IST)
+  workflow_dispatch:
 
 jobs:
   run-script:
