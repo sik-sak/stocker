@@ -4,6 +4,7 @@ import snowflake.connector
 import os
 import datetime
 import logging
+import numpy as np
 
 # logging.basicConfig(
 #     filename=os.path.join("Server/Logs", "historicalUpdateLogs.log"),
@@ -133,10 +134,10 @@ def fetch_data(symbol):
         for i in tsList:
             key = str(int(i.timestamp()))
             newData[key] = {}
-            newData[key]["Open"] = round(hist_data["Open"][i], 2)
-            newData[key]["High"] = round(hist_data["High"][i], 2)
-            newData[key]["Low"] = round(hist_data["Low"][i], 2)
-            newData[key]["Close"] = round(hist_data["Close"][i], 2)
+            newData[key]["Open"] = float(round(hist_data["Open"][i], 2))
+            newData[key]["High"] = float(round(hist_data["High"][i], 2))
+            newData[key]["Low"] = float(round(hist_data["Low"][i], 2))
+            newData[key]["Close"] = float(round(hist_data["Close"][i], 2))
             data['Historical Data'] = newData
     else:
         data['Historical Data'] = None
