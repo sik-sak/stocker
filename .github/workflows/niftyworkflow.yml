@@ -6,6 +6,7 @@ on:
     - cron: "50-59/5 3-9 * * 1-5"  # At every 5th minute from 50 through 59 past every hour from 3 through 9 on every day-of-week from Monday through Friday.
     - cron: "0-49/5 4-9 * * 1-5" # At every 5th minute from 0 through 49 past every hour from 4 through 9 on every day-of-week from Monday through Friday.
     - cron: "0 10 * * 1-5" # At 10:00 on every day-of-week from Monday through Friday.
+  workflow_dispatch:
 
 jobs:
   run-script:
@@ -35,3 +36,16 @@ jobs:
           SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
         run: |
           python Server/Stock_Data/realtimeFetch.py
+      - name: Configure Git
+        run: |
+          git config --global user.name "sik-sak"
+          git config --global user.email "siksak2024@gmail.com"
+      - name: Commit logs
+        run: |
+          git add Server/Logs/historicalUpdateLogs.log
+          git commit -m "Updated logs on $(date '+%Y-%m-%d %H:%M:%S')"
+      - name: Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push

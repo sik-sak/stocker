@@ -71,7 +71,7 @@ def current_price(instrument):
     float: The most recent closing price of the instrument, rounded to three decimal places.
     """
     data = yf.Ticker(instrument).history(period="1d", interval="1m")
-    return round(data["Close"].iloc[-1], 3)
+    return float(round(data["Close"].iloc[-1], 3))
 
 def fetch_data(symbol):
     """
@@ -102,21 +102,26 @@ def fetch_data(symbol):
     data["Symbol"] = symbol
     data["Company Name"] = ticker.info.get('longName', 'NULL')
     data["Current Price"] = current_price(symbol)
-    data["Market Cap"] = format_market_cap(real_time_data.get('marketCap', None))
-    data["PE Ratio"] = real_time_data.get('forwardEps', None)
-    data["Dividend Yield"] = real_time_data.get('dividendYield', None)
+    data["Market Cap"] = format_market_cap(real_time_data.get('marketCap', 0))
+    data["PE Ratio"] = float(real_time_data.get('forwardEps', 0))
+    data["Dividend Yield"] = float(real_time_data.get('dividendYield', 0))
     
     # Fetch historical data
     hist_data = ticker.history(period="1y")  # Fetch last 1 year of data
-    tsList = list(hist_data["Open"].keys())
-    for i in tsList:
-        key = str(int(i.timestamp()))
-        newData[key] = {}
-        newData[key]["Open"] = round(hist_data["Open"][i], 2)
-        newData[key]["High"] = round(hist_data["High"][i], 2)
-        newData[key]["Low"] = round(hist_data["Low"][i], 2)
-        newData[key]["Close"] = round(hist_data["Close"][i], 2)
-        data['Historical Data'] = newData
+    if not hist_data.empty:
+        tsList = list(hist_data["Open"].keys())
+        for i in tsList:
+            key = str(int(i.timestamp()))
+            newData[key] = {}
+            newData[key]["Open"] = float(round(hist_data["Open"][i], 2))
+            newData[key]["High"] = float(round(hist_data["High"][i], 2))
+            newData[key]["Low"] = float(round(hist_data["Low"][i], 2))
+            newData[key]["Close"] = float(round(hist_data["Close"][i], 2))
+            data['Historical Data'] = newData
+    else:
+        data['Historical Data'] = None
+    
+
     
     return data
 
@@ -169,7 +174,7 @@ def upload(symbol, companyName, currentPrice, marketCap, pe_ratio, dividend_yiel
         logging.error(f"Failed to insert data for {stock}: {e}")
 
 # Read stock tickers from the file and process them
-with open('../Data_Files/stock_list.txt', 'r') as file:
+with open(os.path.join('Server/Data_Files', 'stock_list.txt'), 'r') as file:
     for line in file:
         stock = line.strip()  # Read each line and strip whitespace
         if not stock:  # Skip empty lines

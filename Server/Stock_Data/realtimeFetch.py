@@ -83,7 +83,7 @@ def fetch_and_update_data():
                     row = data.loc[time_index]
                     cursor.execute(f"""
                         UPDATE {snowflake_table}
-                        SET Open = {round(row['Open'], 2)}, High = {round(row['High'], 2)}, Low = {round(row['Low'], 2)}, Close = {round(row['Close'], 2)}, updated_at = '{now_ist.strftime('%Y-%m-%d %H:%M:%S')}'
+                        SET Open = {float(round(row['Open'], 2))}, High = {float(round(row['High'], 2))}, Low = {float(round(row['Low'], 2))}, Close = {float(round(row['Close'], 2))}, updated_at = '{now_ist.strftime('%Y-%m-%d %H:%M:%S')}'
                         WHERE Timestamp = '{time_index}'
                     """)
         except Exception as e:

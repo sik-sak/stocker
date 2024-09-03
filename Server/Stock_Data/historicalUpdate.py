@@ -6,11 +6,11 @@ import datetime
 import logging
 import numpy as np
 
-# logging.basicConfig(
-#     filename=os.path.join("Server/Logs", "historicalUpdateLogs.log"),
-#     level=logging.INFO,
-#     format='%(asctime)s - %(levelname)s - %(message)s'
-# )
+logging.basicConfig(
+    filename=os.path.join("Server/Logs", "historicalUpdateLogs.log"),
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 snowflake_conn_params = {
     'user': os.getenv('SNOWFLAKE_USER'),
@@ -219,6 +219,6 @@ with open(os.path.join('Server/Data_Files', 'stock_list.txt'), 'r') as file:
         stock_data = fetch_data(stock+'.NS')
         upload(stock_data["Symbol"], stock_data["Company Name"], stock_data["Current Price"], stock_data["Market Cap"], stock_data["PE Ratio"], stock_data["Dividend Yield"], stock_data["Historical Data"])
         
-        
+logging.info("Stock data fetched and database updated")              
 # Close the connection
 conn.close()
