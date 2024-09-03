@@ -123,9 +123,9 @@ def fetch_data(symbol):
     data["Symbol"] = symbol
     data["Company Name"] = ticker.info.get('longName', 'NULL')
     data["Current Price"] = current_price(symbol)
-    data["Market Cap"] = format_market_cap(real_time_data.get('marketCap', None))
-    data["PE Ratio"] = float(real_time_data.get('forwardEps', None))
-    data["Dividend Yield"] = float(real_time_data.get('dividendYield', None))
+    data["Market Cap"] = format_market_cap(real_time_data.get('marketCap', 0))
+    data["PE Ratio"] = float(real_time_data.get('forwardEps', 0))
+    data["Dividend Yield"] = float(real_time_data.get('dividendYield', 0))
     
     # Fetch historical data
     hist_data = ticker.history(period="1y")  # Fetch last 1 year of data
