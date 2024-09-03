@@ -42,7 +42,7 @@ jobs:
           git config --global user.email "siksak2024@gmail.com"
       - name: Commit logs
         run: |
-          git add Server/Logs/historicalUpdateLogs.log
+          git add Server/Logs/realtimeFetchLogs.log
           git commit -m "Updated logs on $(date '+%Y-%m-%d %H:%M:%S')"
       - name: Push changes
         env:
