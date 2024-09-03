@@ -1,0 +1,35 @@
+name: Historical data fetch
+
+on:
+  schedule:
+    # Cron syntax: "min hour day month day_of_week"
+    - cron: "30 18 * * *"  # At 18:30 UTC everyday (12:00 AM IST)
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r Server/server-requirements.txt
+
+      - name: Run the Python script
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+          SNOWFLAKE_SCHEMA_HISTORICAL: ${{ secrets.SNOWFLAKE_SCHEMA_HISTORICAL }}
+          SNOWFLAKE_TABLE_HISTORICAL: ${{ secrets.SNOWFLAKE_TABLE_HISTORICAL }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+        run: |
+          python Server/Stock_Data/historicalUpdate.py

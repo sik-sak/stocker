@@ -7,7 +7,7 @@ import logging
 
 
 logging.basicConfig(
-    filename=os.path.join("Logs", "historicalUpdateLogs.log"),
+    filename=os.path.join("Server/Logs", "historicalUpdateLogs.log"),
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
