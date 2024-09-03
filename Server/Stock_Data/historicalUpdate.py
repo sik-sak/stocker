@@ -184,11 +184,8 @@ with open(os.path.join('Server/Data_Files', 'stock_list.txt'), 'r') as file:
         stock = line.strip()  # Read each line and strip whitespace
         if not stock:  # Skip empty lines
             continue
-        print(stock)
         stock_data = fetch_data(stock+'.NS')
-        print(stock_data)
-        # upload(stock_data["Symbol"], stock_data["Company Name"], stock_data["Current Price"], stock_data["Market Cap"], stock_data["PE Ratio"], stock_data["Dividend Yield"], stock_data["Historical Data"])
-        break
+        upload(stock_data["Symbol"], stock_data["Company Name"], stock_data["Current Price"], stock_data["Market Cap"], stock_data["PE Ratio"], stock_data["Dividend Yield"], stock_data["Historical Data"])
         
         
 # Close the connection
