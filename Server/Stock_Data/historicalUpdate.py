@@ -92,7 +92,7 @@ def current_price(instrument):
     float: The most recent closing price of the instrument, rounded to three decimal places.
     """
     data = yf.Ticker(instrument).history(period="1d", interval="1m")
-    return round(data["Close"].iloc[-1], 3)
+    return float(round(data["Close"].iloc[-1], 3))
 
 def fetch_data(symbol):
     """
@@ -124,8 +124,8 @@ def fetch_data(symbol):
     data["Company Name"] = ticker.info.get('longName', 'NULL')
     data["Current Price"] = current_price(symbol)
     data["Market Cap"] = format_market_cap(real_time_data.get('marketCap', None))
-    data["PE Ratio"] = real_time_data.get('forwardEps', None)
-    data["Dividend Yield"] = real_time_data.get('dividendYield', None)
+    data["PE Ratio"] = float(real_time_data.get('forwardEps', None))
+    data["Dividend Yield"] = float(real_time_data.get('dividendYield', None))
     
     # Fetch historical data
     hist_data = ticker.history(period="1y")  # Fetch last 1 year of data
@@ -184,11 +184,11 @@ def upload(symbol, companyName, currentPrice, marketCap, pe_ratio, dividend_yiel
     if historical_data:
         try:
             conn.cursor().execute(query_hd, (
-                "companyName",
-                0.00,
-                "marketCap",
-                0.00,
-                0.00,
+                companyName,
+                currentPrice,
+                marketCap,
+                pe_ratio,
+                dividend_yield,
                 replace_quotes(str(historical_data)),
                 symbol
             ))
@@ -197,11 +197,11 @@ def upload(symbol, companyName, currentPrice, marketCap, pe_ratio, dividend_yiel
     else:
         try:
             conn.cursor().execute(query_nhd, (
-                "companyName",
-                0.00,
-                0.00,
-                0.00,
-                0.00,
+                companyName,
+                currentPrice,
+                marketCap,
+                pe_ratio,
+                dividend_yield,
                 symbol
             ))
         except Exception as e:
