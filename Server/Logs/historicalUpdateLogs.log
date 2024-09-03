@@ -1,1 +1,16 @@
 2024-09-03 18:33:12,388 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Windows-11-10.0.22631-SP0
+2024-09-03 19:11:21,784 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Windows-11-10.0.22631-SP0
+2024-09-03 19:11:21,799 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-03 19:11:39,437 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Windows-11-10.0.22631-SP0
+2024-09-03 19:11:39,439 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-03 19:11:42,400 - INFO - closed
+2024-09-03 19:11:42,457 - INFO - No async queries seem to be running, deleting session
+2024-09-03 19:12:11,331 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Windows-11-10.0.22631-SP0
+2024-09-03 19:12:11,331 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-03 19:12:13,557 - INFO - closed
+2024-09-03 19:12:13,609 - INFO - No async queries seem to be running, deleting session
+2024-09-03 19:12:41,284 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Windows-11-10.0.22631-SP0
+2024-09-03 19:12:41,284 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-03 19:13:18,588 - ERROR - $ASIANPAINT.NS: possibly delisted; no price data found  (period=1y)
+2024-09-03 19:13:18,598 - INFO - closed
+2024-09-03 19:13:18,598 - INFO - No async queries seem to be running, deleting session

@@ -4,6 +4,9 @@ import snowflake.connector
 import os
 import datetime
 import logging
+from dotenv import load_dotenv
+
+load_dotenv("snowflakecreds.env")
 
 
 logging.basicConfig(
@@ -27,7 +30,7 @@ snowflake_table = os.getenv('SNOWFLAKE_TABLE_HISTORICAL')
 
 updated_at = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30))).strftime("%Y-%m-%d %H:%M:%S")
 
-query = f"""
+query_hd = f"""
     UPDATE {snowflake_table}
     SET
         company_name = %s,
@@ -37,6 +40,17 @@ query = f"""
         dividend_yield = %s,
         historical_data = %s,
         updated_at = '{updated_at}'
+    WHERE symbol = %s
+"""
+
+query_nhd = f"""
+    UPDATE {snowflake_table}
+    SET
+        company_name = %s,
+        current_price = %s,
+        market_capital = %s,
+        pe_ratio = %s,
+        dividend_yield = %s
     WHERE symbol = %s
 """
 
@@ -116,15 +130,18 @@ def fetch_data(symbol):
     
     # Fetch historical data
     hist_data = ticker.history(period="1y")  # Fetch last 1 year of data
-    tsList = list(hist_data["Open"].keys())
-    for i in tsList:
-        key = str(int(i.timestamp()))
-        newData[key] = {}
-        newData[key]["Open"] = round(hist_data["Open"][i], 2)
-        newData[key]["High"] = round(hist_data["High"][i], 2)
-        newData[key]["Low"] = round(hist_data["Low"][i], 2)
-        newData[key]["Close"] = round(hist_data["Close"][i], 2)
-        data['Historical Data'] = newData
+    if not hist_data.empty:
+        tsList = list(hist_data["Open"].keys())
+        for i in tsList:
+            key = str(int(i.timestamp()))
+            newData[key] = {}
+            newData[key]["Open"] = round(hist_data["Open"][i], 2)
+            newData[key]["High"] = round(hist_data["High"][i], 2)
+            newData[key]["Low"] = round(hist_data["Low"][i], 2)
+            newData[key]["Close"] = round(hist_data["Close"][i], 2)
+            data['Historical Data'] = newData
+    else:
+        data['Historical Data'] = None
     
 
     
@@ -165,18 +182,31 @@ def upload(symbol, companyName, currentPrice, marketCap, pe_ratio, dividend_yiel
     Raises:
     Exception: If the database update fails, the exception is caught and an error message is printed.
     """
-    try:
-        conn.cursor().execute(query, (
-            companyName,
-            currentPrice,
-            marketCap,
-            pe_ratio,
-            dividend_yield,
-            replace_quotes(str(historical_data)),
-            symbol
-        ))
-    except Exception as e:
-        logging.error(f"Failed to update data for {stock}: {e}")
+    if historical_data:
+        try:
+            conn.cursor().execute(query_hd, (
+                companyName,
+                currentPrice,
+                marketCap,
+                pe_ratio,
+                dividend_yield,
+                replace_quotes(str(historical_data)),
+                symbol
+            ))
+        except Exception as e:
+            logging.error(f"Failed to update data for {stock}: {e}")
+    else:
+        try:
+            conn.cursor().execute(query_nhd, (
+                companyName,
+                currentPrice,
+                marketCap,
+                pe_ratio,
+                dividend_yield,
+                symbol
+            ))
+        except Exception as e:
+            logging.error(f"Failed to update data for {stock}: {e}")
 
 # Read stock tickers from stock file and process them
 with open(os.path.join('Server/Data_Files', 'stock_list.txt'), 'r') as file:
@@ -185,7 +215,6 @@ with open(os.path.join('Server/Data_Files', 'stock_list.txt'), 'r') as file:
         if not stock:  # Skip empty lines
             continue
         stock_data = fetch_data(stock+'.NS')
-        logging.info(stock_data)
         upload(stock_data["Symbol"], stock_data["Company Name"], stock_data["Current Price"], stock_data["Market Cap"], stock_data["PE Ratio"], stock_data["Dividend Yield"], stock_data["Historical Data"])
         
         
