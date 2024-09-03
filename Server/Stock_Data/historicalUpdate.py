@@ -5,11 +5,11 @@ import os
 import datetime
 import logging
 
-logging.basicConfig(
-    filename=os.path.join("Server/Logs", "historicalUpdateLogs.log"),
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+# logging.basicConfig(
+#     filename=os.path.join("Server/Logs", "historicalUpdateLogs.log"),
+#     level=logging.INFO,
+#     format='%(asctime)s - %(levelname)s - %(message)s'
+# )
 
 snowflake_conn_params = {
     'user': os.getenv('SNOWFLAKE_USER'),
@@ -21,6 +21,7 @@ snowflake_conn_params = {
 }
 
 conn = snowflake.connector.connect(**snowflake_conn_params)
+logging.info("Connection established with snowflake")
 
 snowflake_table = os.getenv('SNOWFLAKE_TABLE_HISTORICAL')
 
