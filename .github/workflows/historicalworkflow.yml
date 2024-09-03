@@ -3,7 +3,7 @@ name: Historical data fetch
 on:
   schedule:
     # Cron syntax: "min hour day month day_of_week"
-    - cron: '43 12 * * *'  # At 18:30 UTC everyday (12:00 AM IST)
+    - cron: '*/2 * * * *'  # At 18:30 UTC everyday (12:00 AM IST)
 
 jobs:
   run-script:
