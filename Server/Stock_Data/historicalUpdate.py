@@ -183,11 +183,11 @@ def upload(symbol, companyName, currentPrice, marketCap, pe_ratio, dividend_yiel
     if historical_data:
         try:
             conn.cursor().execute(query_hd, (
-                companyName,
-                currentPrice,
-                marketCap,
-                pe_ratio,
-                dividend_yield,
+                "companyName",
+                0.00,
+                "marketCap",
+                0.00,
+                0.00,
                 "Updated",
                 #replace_quotes(str(historical_data)),
                 symbol
@@ -197,11 +197,11 @@ def upload(symbol, companyName, currentPrice, marketCap, pe_ratio, dividend_yiel
     else:
         try:
             conn.cursor().execute(query_nhd, (
-                companyName,
-                currentPrice,
-                marketCap,
-                pe_ratio,
-                dividend_yield,
+                "companyName",
+                0.00,
+                0.00,
+                0.00,
+                0.00,
                 symbol
             ))
         except Exception as e:
