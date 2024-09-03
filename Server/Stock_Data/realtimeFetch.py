@@ -6,7 +6,7 @@ import os
 import logging
 
 logging.basicConfig(
-    filename=os.path.join("Logs", "realtimeFetchLogs.log"),
+    filename=os.path.join("Server/Logs", "realtimeFetchLogs.log"),
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
