@@ -187,7 +187,8 @@ def upload(symbol, companyName, currentPrice, marketCap, pe_ratio, dividend_yiel
                 marketCap,
                 pe_ratio,
                 dividend_yield,
-                replace_quotes(str(historical_data)),
+                "Updated",
+                #replace_quotes(str(historical_data)),
                 symbol
             ))
         except Exception as e:
