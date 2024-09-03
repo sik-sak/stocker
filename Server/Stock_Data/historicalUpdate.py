@@ -205,6 +205,8 @@ def upload(symbol, companyName, currentPrice, marketCap, pe_ratio, dividend_yiel
             ))
         except Exception as e:
             logging.error(f"Failed to update data for {stock}: {e}")
+
+    conn.commit()
     
 
 # Read stock tickers from stock file and process them
