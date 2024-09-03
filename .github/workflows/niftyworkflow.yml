@@ -25,5 +25,13 @@ jobs:
           pip install -r Server/server-requirements.txt
 
       - name: Run the Python script
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+          SNOWFLAKE_SCHEMA_REALTIME: ${{ secrets.SNOWFLAKE_SCHEMA_REALTIME }}
+          SNOWFLAKE_TABLE_REALTIME: ${{ secrets.SNOWFLAKE_TABLE_REALTIME }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
         run: |
-          python Server/Stock_Data/realtimeFetch.py 
+          python Server/Stock_Data/realtimeFetch.py
