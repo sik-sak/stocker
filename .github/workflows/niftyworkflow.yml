@@ -3,7 +3,9 @@ name: NIFTY50 realtime fetch
 on:
   schedule:
     # Cron syntax: "min hour day month day_of_week"
-    - cron: "*/5 * * * 1-5"  # Run every 5 minutes from 9:20 AM to 3:30 PM IST, Monday to Friday
+    - cron: "50-59/5 3-9 * * 1-5"  # At every 5th minute from 50 through 59 past every hour from 3 through 9 on every day-of-week from Monday through Friday.
+    - cron: "0-49/5 4-9 * * 1-5" # At every 5th minute from 0 through 49 past every hour from 4 through 9 on every day-of-week from Monday through Friday.
+    - cron: "0 10 * * 1-5" # At 10:00 on every day-of-week from Monday through Friday.
 
 jobs:
   run-script:
