@@ -1,0 +1,28 @@
+name: NIFTY50 realtime fetch
+
+on:
+  schedule:
+    # Cron syntax: "min hour day month day_of_week"
+    - cron: "50 3-9 * * 1-5"  # Run every 5 minutes from 9:20 AM to 3:30 PM IST, Monday to Friday
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r Server/server-requirements.txt
+
+      - name: Run the Python script
+        run: |
+          python Server/Stock_Data/realtimeFetch.py  # Replace 'your_script.py' with the actual script name
