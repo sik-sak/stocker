@@ -1,0 +1,59 @@
+2024-09-03 16:43:47,971 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.5, Platform: Linux-6.5.0-1025-azure-x86_64-with-glibc2.35
+2024-09-03 16:43:47,972 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-03 16:43:49,433 - INFO - Connection established with snowflake
+2024-09-03 16:43:50,843 - INFO - Number of results in first chunk: 1
+2024-09-03 16:43:51,958 - INFO - Number of results in first chunk: 1
+2024-09-03 16:43:53,192 - INFO - Number of results in first chunk: 1
+2024-09-03 16:43:54,629 - INFO - Number of results in first chunk: 1
+2024-09-03 16:43:55,825 - INFO - Number of results in first chunk: 1
+2024-09-03 16:43:57,011 - INFO - Number of results in first chunk: 1
+2024-09-03 16:43:58,221 - INFO - Number of results in first chunk: 1
+2024-09-03 16:43:59,459 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:00,644 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:01,867 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:03,097 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:04,267 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:05,501 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:06,810 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:07,986 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:09,230 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:10,465 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:11,673 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:12,889 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:14,195 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:15,403 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:16,595 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:17,726 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:18,845 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:20,054 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:21,260 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:22,501 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:23,724 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:24,933 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:26,097 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:27,288 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:28,621 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:30,070 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:31,012 - ERROR - Could not get exchangeTimezoneName for ticker 'ASIANPAINT.NS' reason: 'chart'
+2024-09-03 16:44:31,065 - ERROR - Could not get exchangeTimezoneName for ticker 'ASIANPAINT.NS' reason: 'chart'
+2024-09-03 16:44:31,664 - ERROR - $ASIANPAINT.NS: possibly delisted; no price data found  (period=1y)
+2024-09-03 16:44:32,622 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:33,815 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:35,044 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:36,351 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:37,479 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:38,659 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:39,884 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:41,112 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:42,331 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:43,589 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:44,845 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:46,066 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:47,337 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:48,642 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:49,957 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:51,262 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:52,690 - INFO - Number of results in first chunk: 1
+2024-09-03 16:44:52,690 - INFO - Stock data fetched and database updated
+2024-09-03 16:44:52,690 - INFO - closed
+2024-09-03 16:44:52,933 - INFO - No async queries seem to be running, deleting session
