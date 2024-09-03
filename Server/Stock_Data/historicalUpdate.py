@@ -185,6 +185,7 @@ with open(os.path.join('Server/Data_Files', 'stock_list.txt'), 'r') as file:
         if not stock:  # Skip empty lines
             continue
         stock_data = fetch_data(stock+'.NS')
+        logging.info(stock_data)
         upload(stock_data["Symbol"], stock_data["Company Name"], stock_data["Current Price"], stock_data["Market Cap"], stock_data["PE Ratio"], stock_data["Dividend Yield"], stock_data["Historical Data"])
         
         
