@@ -1,0 +1,172 @@
+// import React, { useState, useEffect } from 'react';
+// import ApexCharts from 'react-apexcharts';
+// import Papa from 'papaparse';
+
+// const StockChart = () => {
+//   const [candlestickSeries, setCandlestickSeries] = useState([]);
+//   const [lineSeries, setLineSeries] = useState([]);
+//   const [symbols, setSymbols] = useState([]);
+//   const [selectedSymbol, setSelectedSymbol] = useState('BAJAJFINSV.NS');
+
+//   // Function to replace single quotes with double quotes to make it JSON-compatible
+//   function replaceQuotes(str) {
+//     return str.replace(/'/g, '"');
+//   }
+
+//   useEffect(() => {
+//     Papa.parse('/NIFTY50stocks.csv', {
+//       download: true,
+//       header: true,
+//       complete: (results) => {
+//         const data = results.data;
+//         const uniqueSymbols = [...new Set(data.map(row => row.Symbol))];
+//         setSymbols(uniqueSymbols);
+//       },
+//     });
+//   }, []);
+
+//   useEffect(() => {
+//     if (selectedSymbol) {
+//       Papa.parse('/NIFTY50stocks.csv', {
+//         download: true,
+//         header: true,
+//         complete: (results) => {
+//           const data = results.data;
+//           const companyData = data.find(row => row.Symbol === selectedSymbol);
+
+//           if (companyData && companyData["Historical Data"]) {
+//             try {
+//               const historicalData = replaceQuotes(companyData["Historical Data"]);
+//               const parsedData = JSON.parse(historicalData);
+
+//               const timestamps = Object.keys(parsedData).map(timestamp => parseInt(timestamp) * 1000); // Multiply by 1000 to convert to milliseconds
+
+//               const formattedData = timestamps.map(timestamp => {
+//                 const dataPoint = parsedData[Math.floor(timestamp / 1000)];
+//                 return {
+//                   x: timestamp,
+//                   y: [
+//                     dataPoint.Open,
+//                     dataPoint.High,
+//                     dataPoint.Low,
+//                     dataPoint.Close
+//                   ]
+//                 };
+//               });
+
+//               setCandlestickSeries([{ name: 'Stock Price', data: formattedData }]);
+//               setLineSeries([{ name: 'Close Price', data: formattedData.map(d => ({ x: d.x, y: d.y[3] })) }]);
+
+//             } catch (error) {
+//               console.error("Error parsing JSON data:", error);
+//             }
+//           }
+//         },
+//       });
+//     }
+//   }, [selectedSymbol]);
+
+//   const candlestickOptions = {
+//     chart: {
+//       type: 'candlestick',
+//       height: 500,
+//       zoom: { enabled: true },
+//       toolbar: { show: true },
+//     },
+//     xaxis: {
+//       type: 'datetime',
+//       labels: { format: 'MMM yyyy' },
+//       title: { text: 'Date' },
+//     },
+//     yaxis: {
+//       tooltip: { enabled: true },
+//       title: { text: 'Price' },
+//     },
+//     tooltip: {
+//       x: { format: 'dd MMM yyyy' },
+//       y: { formatter: value => `$${value.toFixed(2)}` },
+//     },
+//     title: {
+//       text: `Stock Candlestick Chart for ${selectedSymbol}`,
+//       align: 'left',
+//     },
+//     colors: ['#34a853'],
+//   };
+
+//   const lineOptions = {
+//     chart: {
+//       type: 'line',
+//       height: 500,
+//       zoom: { enabled: true },
+//       toolbar: { show: true },
+//     },
+//     xaxis: {
+//       type: 'datetime',
+//       labels: { format: 'MMM yyyy' },
+//       title: { text: 'Date' },
+//     },
+//     yaxis: {
+//       title: { text: 'Close Price' },
+//     },
+//     tooltip: {
+//       x: { format: 'dd MMM yyyy' },
+//       y: { formatter: value => `$${value.toFixed(2)}` },
+//     },
+//     title: {
+//       text: `Stock Close Price Line Chart for ${selectedSymbol}`,
+//       align: 'left',
+//     },
+//     colors: ['#34a853'],
+//   };
+
+//   return (
+//     <div>
+//       <h2>Stock Data Charts</h2>
+//       <div>
+//         <label htmlFor="symbol-select">Select Company Symbol: </label>
+//         <select
+//           id="symbol-select"
+//           value={selectedSymbol}
+//           onChange={(e) => setSelectedSymbol(e.target.value)}
+//         >
+//           <option value="">--Select a symbol--</option>
+//           {symbols.map(symbol => (
+//             <option key={symbol} value={symbol}>
+//               {symbol}
+//             </option>
+//           ))}
+//         </select>
+//       </div>
+
+//       {selectedSymbol && (
+//         <>
+//           <div>
+//             <h3>Candlestick Chart</h3>
+//             <ApexCharts
+//               type="candlestick"
+//               options={candlestickOptions}
+//               series={candlestickSeries}
+//               height={500}
+//             />
+//           </div>
+//           <div>
+//             <h3>Line Chart</h3>
+//             <ApexCharts
+//               type="line"
+//               options={{
+//                 ...lineOptions,
+//                 stroke: {
+//                   width: 2 // Set the width to your desired value
+//                 }
+//               }}
+//               series={lineSeries}
+//               height={500}
+//             />
+//           </div>
+//         </>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default StockChart;
