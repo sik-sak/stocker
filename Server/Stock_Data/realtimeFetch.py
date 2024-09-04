@@ -69,7 +69,7 @@ def fetch_and_update_data():
     # Define the start and end times
     if not last_run:
         data = nifty50.history(interval="1m", start=market_open, end=now_ist)
-        logging.info(f"First run - {now_ist.strftime('%Y-%m-%d %H-%M-%S').time()} - Fetching data from {market_open.time()} to {now_ist.strftime('%Y-%m-%d %H-%M-%S').time()}")
+        logging.info(f"First run - {now_ist.time().strftime('%H-%M-%S')} - Fetching data from {market_open.time()} to {now_ist.time().strftime('%H-%M-%S')}")
         jsonData['last_updated_at'] = now_ist.strftime('%Y-%m-%d %H-%M-%S')
     else:
         fetch_time = market_open + datetime.timedelta(minutes=5)
@@ -86,7 +86,7 @@ def fetch_and_update_data():
                 quit()
             else:
                 data = nifty50.history(period="1d", interval="1m")
-                logging.info(f"Timestamp - {now_ist.strftime('%Y-%m-%d %H-%M-%S').time()} - Fetching all data")
+                logging.info(f"Timestamp - {now_ist.time().strftime('%H-%M-%S')} - Fetching all data")
                 jsonData['last_updated_at'] = now_ist.strftime('%Y-%m-%d %H-%M-%S')
 
     with open(os.path.join("Server/Data_Files", "last_run.json"), "w") as jsonFile:
