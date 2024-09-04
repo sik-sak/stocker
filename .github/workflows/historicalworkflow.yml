@@ -39,6 +39,7 @@ jobs:
         run: |
           git config --global user.name "sik-sak"
           git config --global user.email "siksak2024@gmail.com"
+          git pull
       - name: Commit logs
         run: |
           git add Server/Logs/historicalUpdateLogs.log
