@@ -69,8 +69,8 @@ def fetch_and_update_data():
     # Define the start and end times
     if not last_run:
         data = nifty50.history(interval="1m", start=market_open, end=now_ist)
-        logging.info(f"First run - {now_ist.time().strftime('%H-%M-%S')} - Fetching data from {market_open.time()} to {now_ist.time().strftime('%H-%M-%S')}")
-        jsonData['last_updated_at'] = now_ist.strftime('%Y-%m-%d %H-%M-%S')
+        logging.info(f"First run - {now_ist.time().strftime('%H:%M:%S')} - Fetching data from {market_open.time()} to {now_ist.time().strftime('%H:%M:%S')}")
+        jsonData['last_updated_at'] = now_ist.strftime('%Y-%m-%d %H:%M:%S')
     else:
         fetch_time = market_open + datetime.timedelta(minutes=5)
         if now_ist.time() < fetch_time.time():
@@ -78,16 +78,16 @@ def fetch_and_update_data():
         elif fetch_time.time() <= now_ist.time() <= market_close.time():
             end_time = now_ist
             data = nifty50.history(interval="1m", start=last_run, end=end_time)
-            logging.info(f"Timestamp - {end_time.strftime('%Y-%m-%d %H-%M-%S')} - Data fetched from {last_run} to {end_time.strftime('%Y-%m-%d %H-%M-%S')}")
-            jsonData['last_updated_at'] = end_time.strftime('%Y-%m-%d %H-%M-%S')
+            logging.info(f"Timestamp - {end_time.strftime('%Y-%m-%d %H:%M:%S')} - Data fetched from {last_run} to {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
+            jsonData['last_updated_at'] = end_time.strftime('%Y-%m-%d %H:%M:%S')
         else:
-            if last_run > market_close.strftime('%Y-%m-%d %H-%M-%S'):
+            if last_run > market_close.strftime('%Y-%m-%d %H:%M:%S'):
                 logging.info(f"Last run at {last_run}. Skipping data load")
                 quit()
             else:
                 data = nifty50.history(period="1d", interval="1m")
-                logging.info(f"Timestamp - {now_ist.time().strftime('%H-%M-%S')} - Fetching all data")
-                jsonData['last_updated_at'] = now_ist.strftime('%Y-%m-%d %H-%M-%S')
+                logging.info(f"Timestamp - {now_ist.time().strftime('%H:%M:%S')} - Fetching all data")
+                jsonData['last_updated_at'] = now_ist.strftime('%Y-%m-%d %H:%M:%S')
 
     with open(os.path.join("Server/Data_Files", "last_run.json"), "w") as jsonFile:
         json.dump(jsonData, jsonFile, indent=4)    
