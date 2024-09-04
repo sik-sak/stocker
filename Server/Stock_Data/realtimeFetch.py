@@ -4,12 +4,18 @@ import datetime
 import snowflake.connector
 import os
 import logging
+import json
 
 logging.basicConfig(
     filename=os.path.join("Server/Logs", "realtimeFetchLogs.log"),
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
+
+with open(os.path.join("Server/Data_Files", "last_run.json"), "r") as jsonFile:
+    jsonData = json.load(jsonFile)
+
+last_run = jsonData['last_updated_at']
 
 # Defining IST timezone
 IST = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
@@ -61,15 +67,30 @@ def fetch_and_update_data():
     now_ist = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30)))
 
     # Define the start and end times
-    if now_ist.time() >= market_close.time():
-        data = nifty50.history(period="1d", interval="1m")
-        logging.info(f"Timestamp - {now_ist.time()} - Fetching all data")
+    if not last_run:
+        data = nifty50.history(interval="1m", start=market_open, end=now_ist)
+        logging.info(f"First run - {now_ist.strftime('%Y-%m-%d %H-%M-%S').time()} - Fetching data from {market_open.time()} to {now_ist.strftime('%Y-%m-%d %H-%M-%S').time()}")
+        jsonData['last_updated_at'] = now_ist.strftime('%Y-%m-%d %H-%M-%S')
     else:
-        end_time = now_ist
-        start_time = end_time - datetime.timedelta(minutes=5)
-        data = nifty50.history(interval="1m", start=start_time, end=end_time)
-        logging.info(f"Timestamp - {now_ist.time()} - Fetching past 5 minutes data")
-    
+        fetch_time = market_open + datetime.timedelta(minutes=5)
+        if now_ist.time() < fetch_time.time():
+            pass
+        elif fetch_time.time() <= now_ist.time() <= market_close.time():
+            end_time = now_ist
+            data = nifty50.history(interval="1m", start=last_run, end=end_time)
+            logging.info(f"Timestamp - {end_time.strftime('%Y-%m-%d %H-%M-%S')} - Data fetched from {last_run} to {end_time.strftime('%Y-%m-%d %H-%M-%S')}")
+            jsonData['last_updated_at'] = end_time.strftime('%Y-%m-%d %H-%M-%S')
+        else:
+            if last_run > market_close.strftime('%Y-%m-%d %H-%M-%S'):
+                logging.info(f"Last run at {last_run}. Skipping data load")
+                quit()
+            else:
+                data = nifty50.history(period="1d", interval="1m")
+                logging.info(f"Timestamp - {now_ist.strftime('%Y-%m-%d %H-%M-%S').time()} - Fetching all data")
+                jsonData['last_updated_at'] = now_ist.strftime('%Y-%m-%d %H-%M-%S')
+
+    with open(os.path.join("Server/Data_Files", "last_run.json"), "w") as jsonFile:
+        json.dump(jsonData, jsonFile, indent=4)    
 
     if not data.empty:
         # Keep only the OHLC columns and reset the index to work with time
