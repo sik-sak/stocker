@@ -39,10 +39,15 @@ jobs:
         run: |
           git config --global user.name "sik-sak"
           git config --global user.email "siksak2024@gmail.com"
+      - name: Update timestamp
+        run: |
+            git add Server/Data_Files/last_run.json
+            git commit -m "Updated latest timestamp"
       - name: Commit logs
         run: |
           git add Server/Logs/realtimeFetchLogs.log
           git commit -m "Updated logs on $(date '+%Y-%m-%d %H:%M:%S')"
+      
       - name: Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

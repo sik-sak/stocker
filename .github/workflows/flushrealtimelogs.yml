@@ -1,0 +1,37 @@
+name: Flushing realtime logs
+
+on:
+  schedule:
+    # Cron syntax: "min hour day month day_of_week"
+    - cron: '30 18 * * *'  # At 18:30 UTC everyday (12:00 AM IST)
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Flush logs
+        run: |
+          python Server/Logs/flushRealtimeLogs.py
+      - name: Configure Git
+        run: |
+          git config --global user.name "sik-sak"
+          git config --global user.email "siksak2024@gmail.com"
+      - name: Commit logs
+        run: |
+          git add Server/Logs/realtimeFetchLogs.log
+          git commit -m "Flushed logs on $(date '+%Y-%m-%d %H:%M:%S')"
+      - name: Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push
