@@ -35,11 +35,22 @@ jobs:
           SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
         run: |
           python Server/Stock_Data/realtimeFetch.py
+      - name: Check for changes in specific file
+        id: check_changes
+        run: |
+          if git diff --quiet HEAD -- Server/Data_Files/last_run.json; then
+            echo "No changes detected in last_run.json"
+            echo "changes_detected=false" >> $GITHUB_ENV
+          else
+            echo "Changes detected in last_run.json"
+            echo "changes_detected=true" >> $GITHUB_ENV
+          fi
       - name: Configure Git
         run: |
           git config --global user.name "sik-sak"
           git config --global user.email "siksak2024@gmail.com"
       - name: Update timestamp
+        if: env.changes_detected == 'true'
         run: |
             git add Server/Data_Files/last_run.json
             git commit -m "Updated latest timestamp"
