@@ -77,7 +77,7 @@ def fetch_and_update_data():
             pass
         elif fetch_time.time() <= now_ist.time() <= market_close.time():
             end_time = now_ist
-            data = nifty50.history(interval="1m", start=datetime.datetime.strptime(last_run, "%Y-%m-%d %H:%M:%S") - datetime.timedelta(minutes=1), end=end_time)
+            data = nifty50.history(interval="1m", start=datetime.datetime.strptime(last_run, "%Y-%m-%d %H:%M:%S") - datetime.timedelta(minutes=2), end=end_time)
             logging.info(f"Timestamp - {end_time.strftime('%Y-%m-%d %H:%M:%S')} - Data fetched from {last_run} to {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
             jsonData['last_updated_at'] = end_time.strftime('%Y-%m-%d %H:%M:%S')
         else:
