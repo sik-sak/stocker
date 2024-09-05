@@ -25,11 +25,11 @@ jobs:
       - name: Check if log is already flushed
         id: check_changes
         run: |
-          if git diff --quiet HEAD -- Server/Data_Files/last_run.json; then
-            echo "No changes detected in last_run.json"
+          if git diff --quiet HEAD -- Server/Logs/realtimeFetchLogs.log; then
+            echo "Logs already flushed"
             echo "changes_detected=false" >> $GITHUB_ENV
           else
-            echo "Changes detected in last_run.json"
+            echo "Flushing logs"
             echo "changes_detected=true" >> $GITHUB_ENV
           fi
       - name: Configure Git
