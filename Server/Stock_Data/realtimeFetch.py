@@ -110,7 +110,7 @@ def fetch_and_update_data():
         except Exception as e:
             logging.error(f"Failed to update data for {time_index}: {e}")
 
-    logging.info(f"Timestamp - {now_ist.time().strftime("%Y-%m-%d %H:%M:%S")} - Database updated")
+    logging.info(f"Timestamp - {now_ist.time().strftime("%H:%M:%S")} - Database updated")
     # Close the connection
     conn.close()
 
