@@ -22,15 +22,27 @@ jobs:
       - name: Flush logs
         run: |
           python Server/Logs/flushRealtimeLogs.py
+      - name: Check if log is already flushed
+        id: check_changes
+        run: |
+          if git diff --quiet HEAD -- Server/Data_Files/last_run.json; then
+            echo "No changes detected in last_run.json"
+            echo "changes_detected=false" >> $GITHUB_ENV
+          else
+            echo "Changes detected in last_run.json"
+            echo "changes_detected=true" >> $GITHUB_ENV
+          fi
       - name: Configure Git
         run: |
           git config --global user.name "sik-sak"
           git config --global user.email "siksak2024@gmail.com"
           git pull
+          
       - name: Commit logs
+        if: env.changes_detected == 'true'
         run: |
-          git add Server/Logs/realtimeFetchLogs.log
-          git commit -m "Flushed logs on $(date '+%Y-%m-%d %H:%M:%S')"
+            git add Server/Logs/realtimeFetchLogs.log
+            git commit -m "Flushed logs on $(date '+%Y-%m-%d %H:%M:%S')"
       - name: Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

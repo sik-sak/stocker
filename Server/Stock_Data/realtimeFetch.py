@@ -67,7 +67,7 @@ def fetch_and_update_data():
     now_ist = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30)))
 
     # Define the start and end times
-    if not last_run:
+    if not last_run or datetime.strptime(last_run, "%Y-%m-%d %H:%M:%S").date() < now_ist.date():
         data = nifty50.history(interval="1m", start=market_open, end=now_ist)
         logging.info(f"First run - {now_ist.time().strftime('%H:%M:%S')} - Fetching data from {market_open.time()} to {now_ist.time().strftime('%H:%M:%S')}")
         jsonData['last_updated_at'] = now_ist.strftime('%Y-%m-%d %H:%M:%S')
@@ -77,7 +77,7 @@ def fetch_and_update_data():
             pass
         elif fetch_time.time() <= now_ist.time() <= market_close.time():
             end_time = now_ist
-            data = nifty50.history(interval="1m", start=last_run, end=end_time)
+            data = nifty50.history(interval="1m", start=last_run.strptime("%Y-%m-%d %H:%M:%S"), end=end_time)
             logging.info(f"Timestamp - {end_time.strftime('%Y-%m-%d %H:%M:%S')} - Data fetched from {last_run} to {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
             jsonData['last_updated_at'] = end_time.strftime('%Y-%m-%d %H:%M:%S')
         else:
