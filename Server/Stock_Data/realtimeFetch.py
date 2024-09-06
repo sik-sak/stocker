@@ -74,7 +74,7 @@ def fetch_and_update_data():
     else:
         fetch_time = market_open + datetime.timedelta(minutes=5)
         if now_ist.time() < fetch_time.time():
-            pass
+            quit()
         elif fetch_time.time() <= now_ist.time() <= market_close.time():
             end_time = now_ist
             data = nifty50.history(interval="1m", start=datetime.datetime.strptime(last_run, "%Y-%m-%d %H:%M:%S") - datetime.timedelta(minutes=2), end=end_time)
