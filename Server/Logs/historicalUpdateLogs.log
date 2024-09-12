@@ -1,73 +1,57 @@
-2024-09-11 18:45:52,946 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.5, Platform: Linux-6.5.0-1025-azure-x86_64-with-glibc2.35
-2024-09-11 18:45:52,947 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
-2024-09-11 18:45:54,214 - INFO - Connection established with snowflake
-2024-09-11 18:45:55,566 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/%5ENSEI?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=%5ENSEI&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:45:57,415 - INFO - Number of results in first chunk: 1
-2024-09-11 18:45:58,167 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/BAJAJFINSV.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=BAJAJFINSV.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:45:59,537 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:00,252 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/SBILIFE.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=SBILIFE.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:01,299 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:01,969 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/MARUTI.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=MARUTI.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:03,030 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:03,932 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/HDFCLIFE.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=HDFCLIFE.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:04,946 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:05,571 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/LT.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=LT.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:06,669 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:07,295 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/SHRIRAMFIN.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=SHRIRAMFIN.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:08,381 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:09,129 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/BAJFINANCE.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=BAJFINANCE.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:10,232 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:10,908 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/INFY.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=INFY.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:11,933 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:12,698 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/BAJAJ-AUTO.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=BAJAJ-AUTO.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:13,734 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:14,302 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/SUNPHARMA.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=SUNPHARMA.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:15,358 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:15,998 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/ICICIBANK.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=ICICIBANK.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:17,070 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:17,675 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/AXISBANK.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=AXISBANK.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:18,818 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:19,482 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/BHARTIARTL.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=BHARTIARTL.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:20,708 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:21,260 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/DRREDDY.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=DRREDDY.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:22,420 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:23,174 - ERROR - 401 Client Error: Unauthorized for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/EICHERMOT.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=EICHERMOT.NS&crumb=%7B%22finance%22%3A%7B%22result%22%3Anull%2C%22error%22%3A%7B%22code%22%3A%22Unauthorized%22%2C%22description%22%3A%22Invalid+Cookie%22%7D%7D%7D
-2024-09-11 18:46:24,213 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:26,144 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:27,392 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:28,627 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:29,718 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:30,842 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:31,969 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:33,008 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:34,116 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:35,267 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:36,499 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:37,619 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:38,783 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:39,892 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:41,446 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:42,480 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:43,707 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:44,769 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:45,883 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:47,018 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:48,169 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:49,332 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:50,466 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:51,668 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:52,832 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:53,956 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:54,996 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:56,204 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:57,296 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:58,386 - INFO - Number of results in first chunk: 1
-2024-09-11 18:46:59,501 - INFO - Number of results in first chunk: 1
-2024-09-11 18:47:00,564 - INFO - Number of results in first chunk: 1
-2024-09-11 18:47:01,679 - INFO - Number of results in first chunk: 1
-2024-09-11 18:47:02,761 - INFO - Number of results in first chunk: 1
-2024-09-11 18:47:04,038 - INFO - Number of results in first chunk: 1
-2024-09-11 18:47:05,328 - INFO - Number of results in first chunk: 1
-2024-09-11 18:47:05,328 - INFO - Stock data fetched and database updated
-2024-09-11 18:47:05,328 - INFO - closed
-2024-09-11 18:47:05,509 - INFO - No async queries seem to be running, deleting session
+2024-09-12 18:47:14,726 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.5, Platform: Linux-6.5.0-1025-azure-x86_64-with-glibc2.35
+2024-09-12 18:47:14,726 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-12 18:47:16,555 - INFO - Connection established with snowflake
+2024-09-12 18:47:18,872 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:20,553 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:22,924 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:24,232 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:25,347 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:26,612 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:28,121 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:29,318 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:30,800 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:31,964 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:33,158 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:34,418 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:35,622 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:36,903 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:38,125 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:39,369 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:40,532 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:41,710 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:42,944 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:44,258 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:45,494 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:46,634 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:47,813 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:48,982 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:50,271 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:51,462 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:52,675 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:53,842 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:55,027 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:56,253 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:57,507 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:58,646 - INFO - Number of results in first chunk: 1
+2024-09-12 18:47:59,810 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:01,061 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:02,259 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:03,515 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:04,718 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:06,005 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:07,232 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:08,487 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:09,735 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:10,912 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:12,156 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:13,386 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:14,624 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:15,943 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:17,180 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:18,430 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:19,620 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:21,088 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:22,603 - INFO - Number of results in first chunk: 1
+2024-09-12 18:48:22,603 - INFO - Stock data fetched and database updated
+2024-09-12 18:48:22,603 - INFO - closed
+2024-09-12 18:48:22,843 - INFO - No async queries seem to be running, deleting session
