@@ -1,0 +1,7 @@
+2024-09-27 03:39:33,373 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.6, Platform: Linux-6.8.0-1014-azure-x86_64-with-glibc2.35
+2024-09-27 03:39:33,373 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-09-27 03:39:36,096 - ERROR - $^NSEI: possibly delisted; no price data found  (1m 2024-09-27 09:15:00+05:30 -> 2024-09-27 09:09:35.025846+05:30) (Yahoo error = "Invalid input - start date cannot be after end date. startDate = 1727408700, endDate = 1727408375")
+2024-09-27 03:39:36,097 - INFO - First run - 09:09:35 - Fetching data from 09:15:00 to 09:09:35
+2024-09-27 03:39:36,097 - INFO - Timestamp - 09:09:35 - Database updated
+2024-09-27 03:39:36,097 - INFO - closed
+2024-09-27 03:39:36,360 - INFO - No async queries seem to be running, deleting session
