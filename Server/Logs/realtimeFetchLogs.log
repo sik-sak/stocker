@@ -122,3 +122,10 @@
 2024-10-02 06:37:11,463 - INFO - Timestamp - 12:07:11 - Database updated
 2024-10-02 06:37:11,463 - INFO - closed
 2024-10-02 06:37:11,703 - INFO - No async queries seem to be running, deleting session
+2024-10-02 06:47:31,013 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.6, Platform: Linux-6.8.0-1014-azure-x86_64-with-glibc2.35
+2024-10-02 06:47:31,014 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-10-02 06:47:33,000 - ERROR - $^NSEI: possibly delisted; no price data found  (1m 2024-10-02 12:05:11 -> 2024-10-02 12:17:32.699882+05:30)
+2024-10-02 06:47:33,000 - INFO - Timestamp - 2024-10-02 12:17:32 - Data fetched from 2024-10-02 12:07:11 to 2024-10-02 12:17:32
+2024-10-02 06:47:33,000 - INFO - Timestamp - 12:17:32 - Database updated
+2024-10-02 06:47:33,000 - INFO - closed
+2024-10-02 06:47:33,237 - INFO - No async queries seem to be running, deleting session
