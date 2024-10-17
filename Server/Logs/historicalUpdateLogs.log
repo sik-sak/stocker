@@ -1,57 +1,57 @@
-2024-10-16 18:41:24,782 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.7, Platform: Linux-6.5.0-1025-azure-x86_64-with-glibc2.35
-2024-10-16 18:41:24,783 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
-2024-10-16 18:41:26,456 - INFO - Connection established with snowflake
-2024-10-16 18:41:28,572 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:30,049 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:31,227 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:32,411 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:33,543 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:34,829 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:35,996 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:37,102 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:38,321 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:39,410 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:40,673 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:41,897 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:43,118 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:44,294 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:45,421 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:46,615 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:47,809 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:48,922 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:50,143 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:51,312 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:52,523 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:53,685 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:54,824 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:56,093 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:57,225 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:58,372 - INFO - Number of results in first chunk: 1
-2024-10-16 18:41:59,573 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:00,754 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:01,961 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:03,194 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:04,480 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:05,619 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:06,865 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:08,002 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:09,149 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:10,264 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:11,524 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:12,719 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:13,833 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:15,088 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:16,246 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:17,427 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:18,619 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:19,808 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:20,962 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:22,070 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:23,262 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:24,613 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:25,879 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:27,239 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:28,500 - INFO - Number of results in first chunk: 1
-2024-10-16 18:42:28,500 - INFO - Stock data fetched and database updated
-2024-10-16 18:42:28,500 - INFO - closed
-2024-10-16 18:42:28,737 - INFO - No async queries seem to be running, deleting session
+2024-10-17 18:40:33,098 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.7, Platform: Linux-6.5.0-1025-azure-x86_64-with-glibc2.35
+2024-10-17 18:40:33,098 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-10-17 18:40:34,564 - INFO - Connection established with snowflake
+2024-10-17 18:40:36,590 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:37,727 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:39,225 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:40,425 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:41,680 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:42,897 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:44,051 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:45,635 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:46,983 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:48,286 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:49,536 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:50,705 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:51,906 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:53,116 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:54,429 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:55,634 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:56,977 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:58,239 - INFO - Number of results in first chunk: 1
+2024-10-17 18:40:59,586 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:00,796 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:02,105 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:03,381 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:04,616 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:05,834 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:07,078 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:08,330 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:09,535 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:10,782 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:11,983 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:13,217 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:14,647 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:15,951 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:17,210 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:18,444 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:19,639 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:20,842 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:22,131 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:23,380 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:24,683 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:25,947 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:27,205 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:28,577 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:29,752 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:30,982 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:32,319 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:33,696 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:34,864 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:36,150 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:37,407 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:38,966 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:40,814 - INFO - Number of results in first chunk: 1
+2024-10-17 18:41:40,815 - INFO - Stock data fetched and database updated
+2024-10-17 18:41:40,815 - INFO - closed
+2024-10-17 18:41:41,048 - INFO - No async queries seem to be running, deleting session
