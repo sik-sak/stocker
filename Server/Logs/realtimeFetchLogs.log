@@ -85,3 +85,9 @@
 2024-10-23 05:46:39,798 - INFO - Timestamp - 11:16:36 - Database updated
 2024-10-23 05:46:39,798 - INFO - closed
 2024-10-23 05:46:39,978 - INFO - No async queries seem to be running, deleting session
+2024-10-23 05:51:52,914 - INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.7, Platform: Linux-6.5.0-1025-azure-x86_64-with-glibc2.35
+2024-10-23 05:51:52,914 - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+2024-10-23 05:51:54,759 - INFO - Timestamp - 2024-10-23 11:21:54 - Data fetched from 2024-10-23 11:16:36 to 2024-10-23 11:21:54
+2024-10-23 05:51:58,566 - INFO - Timestamp - 11:21:54 - Database updated
+2024-10-23 05:51:58,566 - INFO - closed
+2024-10-23 05:51:58,794 - INFO - No async queries seem to be running, deleting session
